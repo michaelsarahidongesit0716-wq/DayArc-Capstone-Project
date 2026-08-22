@@ -1,0 +1,384 @@
+.landing-page {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ---- Nav ---- */
+.landing-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.dayarc-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--ink);
+}
+
+.logo-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+}
+
+.landing-nav-right {
+    display: flex;
+    gap: 24px;
+    color: var(--ink-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ---- Main hero layout ---- */
+.landing-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 100px;
+    flex-wrap: wrap;
+}
+
+.landing-content {
+    flex: 1 1 420px;
+}
+
+.small-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent-solid);
+    background: var(--ring-track);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+}
+
+.landing-content h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+
+.landing-content h1 span {
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.landing-description {
+    color: var(--ink-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 440px;
+    margin-bottom: 32px;
+}
+
+.landing-actions {
+    margin-bottom: 36px;
+}
+
+.get-started-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    transition: transform 0.15s ease;
+}
+
+.get-started-btn:hover {
+    transform: translateY(-2px);
+}
+
+.landing-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.landing-features>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-solid);
+}
+
+.feature-dot.teal {
+    background: var(--secondary);
+}
+
+.feature-dot.lavender {
+    background: var(--tertiary);
+}
+
+/* ---- Calendar visual ---- */
+.calendar-section {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.calendar-decoration {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    z-index: 0;
+}
+
+.decoration-one {
+    width: 90px;
+    height: 90px;
+    background: var(--tertiary);
+    opacity: 0.35;
+    top: -30px;
+    right: -20px;
+}
+
+.decoration-two {
+    width: 60px;
+    height: 60px;
+    background: var(--secondary);
+    opacity: 0.3;
+    bottom: -20px;
+    left: -20px;
+}
+
+.calendar-card {
+    position: relative;
+    z-index: 1;
+    width: 340px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+.calendar-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.calendar-month {
+    color: var(--ink-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 0 0 2px;
+}
+
+.calendar-top h2 {
+    font-size: 1.6rem;
+}
+
+.calendar-small-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ring-track);
+    color: var(--accent-solid);
+    font-weight: 700;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    color: var(--ink-muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.calendar-days span {
+    padding: 6px 0;
+    border-radius: 8px;
+    color: var(--ink);
+}
+
+.calendar-days .muted-day {
+    color: var(--border);
+}
+
+.calendar-days .today {
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    color: #fff;
+    font-weight: 700;
+}
+
+.calendar-footer {
+    margin-top: 18px;
+}
+
+.footer-line {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 14px;
+}
+
+.calendar-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.note-icon {
+    color: var(--accent-solid);
+}
+
+/* ---- Floating cards ---- */
+.floating-task-card,
+.floating-progress-card {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    padding: 12px 16px;
+    font-size: 0.85rem;
+}
+
+.floating-task-card {
+    top: -20px;
+    left: -30px;
+}
+
+.floating-task-card strong,
+.floating-progress-card strong {
+    display: block;
+    font-size: 0.85rem;
+}
+
+.floating-task-card p,
+.floating-progress-card p {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 0.78rem;
+}
+
+.floating-check {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary);
+    color: #fff;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.floating-progress-card {
+    bottom: -24px;
+    right: -20px;
+}
+
+.progress-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+/* ---- Footer statement ---- */
+.landing-footer {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    text-align: center;
+    color: var(--ink-muted);
+    font-weight: 600;
+    padding: 32px 24px 56px;
+    border-top: 1px solid var(--border);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+    .landing-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .landing-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .landing-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .landing-features>div {
+        justify-content: center;
+    }
+
+    .calendar-card {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .floating-task-card,
+    .floating-progress-card {
+        display: none;
+    }
+}
