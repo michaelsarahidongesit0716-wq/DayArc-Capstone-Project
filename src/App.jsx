@@ -75,7 +75,7 @@ import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
 import WeeklyReview from "./pages/weeklyreview";
 import Reflection from "./pages/reflection";
-import Reflection from "./pages/settings";
+import Settings from "./pages/settings";
 
 function AgeGroupTheme({ children }) {
   const { profile } = useAuth();
