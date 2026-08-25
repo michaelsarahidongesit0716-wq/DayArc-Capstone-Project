@@ -53,6 +53,10 @@ export default function Login() {
                     />
                 </label>
 
+                {error && <p className="form-error">{error}</p>}
+
+                <button className="btn btn-primary" disabled={submitting}></button>
+
                 <button className="btn btn-primary" disabled={submitting}>
                     {submitting ? "Logging in…" : "Log in"}
                 </button>
