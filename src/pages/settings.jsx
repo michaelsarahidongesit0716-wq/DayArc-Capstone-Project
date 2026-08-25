@@ -14,8 +14,8 @@ export default function Settings() {
     const [ageGroup, setAgeGroup] = useState(profile?.ageGroup || "adult");
     const [profileStatus, setProfileStatus] = useState("");
 
-    const [prepTime, setPrepTime] = useState(profile?.prepTime || "06:00");
-    const [startTime, setStartTime] = useState(profile?.startTime || "07:00");
+    const [prepTime, setPrepTime] = useState(profile?.prepTime || "00:00");
+    const [startTime, setStartTime] = useState(profile?.startTime || "00:00");
     const [reminderStatus, setReminderStatus] = useState("");
 
     const [voiceEnabled, setVoiceEnabled] = useState(
