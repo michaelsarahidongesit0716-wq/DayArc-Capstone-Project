@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import TaskCard from "../components/taskcard";
 import TaskForm from "../components/taskform";
@@ -13,12 +14,11 @@ import { todayISO } from "../utils/datehelpers";
 import { gradeFor } from "../utils/grading";
 
 export default function Dashboard() {
-    const { profile, updateSettings } = useAuth();
+    const { profile } = useAuth();
     const { tasks, addTask } = useTasks();
     const { message, dismiss } = useMotivation();
-    const [view, setView] = useState("list");
+    const [view, setView] = useState("list"); // "list" | "matrix"
     const [showForm, setShowForm] = useState(false);
-    const [showSettings, setShowSettings] = useState(false);
     const [editingTask, setEditingTask] = useState(null);
     const [notifPermission, setNotifPermission] = useState(
         typeof Notification !== "undefined" ? Notification.permission : "denied"
@@ -63,7 +63,8 @@ export default function Dashboard() {
         if (notifPermission === "granted") {
             new Notification(text);
         }
-        if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        const voiceEnabled = profile?.voiceEnabled !== false;
+        if (voiceEnabled && typeof window !== "undefined" && "speechSynthesis" in window) {
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.rate = 1;
             window.speechSynthesis.speak(utterance);
@@ -91,6 +92,7 @@ export default function Dashboard() {
             <main className="page">
                 <section className="dashboard-header">
                     <div>
+                        <p className="greeting">HELLO, {profile?.name || "Friend"}</p>
                         <h1>Today</h1>
                         <p className="page-subtitle">
                             {new Date().toLocaleDateString(undefined, {
@@ -113,20 +115,9 @@ export default function Dashboard() {
                 )}
 
                 <section className="settings-toggle-row">
-                    <button
-                        className="btn btn-ghost"
-                        onClick={() => setShowSettings((s) => !s)}
-                    >
-                        ⚙️ Reminder times
-                    </button>
-                    {showSettings && (
-                        <ReminderSettings
-                            prepTime={prepTime}
-                            startTime={startTime}
-                            onSave={updateSettings}
-                            onClose={() => setShowSettings(false)}
-                        />
-                    )}
+                    <Link to="/settings" className="btn btn-ghost">
+                        ⚙️ Settings
+                    </Link>
                 </section>
 
                 <section className="toolbar">
@@ -179,32 +170,5 @@ export default function Dashboard() {
 
             <MotivationalPopup message={message} onDismiss={dismiss} />
         </>
-    );
-}
-
-function ReminderSettings({ prepTime, startTime, onSave, onClose }) {
-    const [prep, setPrep] = useState(prepTime);
-    const [start, setStart] = useState(startTime);
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        onSave({ prepTime: prep, startTime: start });
-        onClose();
-    }
-
-    return (
-        <form className="reminder-settings" onSubmit={handleSubmit}>
-            <label>
-                Plan-my-day reminder
-                <input type="time" value={prep} onChange={(e) => setPrep(e.target.value)} />
-            </label>
-            <label>
-                Start-tasks reminder
-                <input type="time" value={start} onChange={(e) => setStart(e.target.value)} />
-            </label>
-            <button type="submit" className="btn btn-primary">
-                Save
-            </button>
-        </form>
     );
 }
