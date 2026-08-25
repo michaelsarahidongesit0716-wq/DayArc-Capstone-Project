@@ -14,8 +14,8 @@ export default function Settings() {
     const [ageGroup, setAgeGroup] = useState(profile?.ageGroup || "adult");
     const [profileStatus, setProfileStatus] = useState("");
 
-    const [prepTime, setPrepTime] = useState(profile?.prepTime || "00:00");
-    const [startTime, setStartTime] = useState(profile?.startTime || "00:00");
+    const [prepTime, setPrepTime] = useState(profile?.prepTime || "06:00");
+    const [startTime, setStartTime] = useState(profile?.startTime || "07:00");
     const [reminderStatus, setReminderStatus] = useState("");
 
     const [voiceEnabled, setVoiceEnabled] = useState(
@@ -75,9 +75,9 @@ export default function Settings() {
     return (
         <>
             <Navbar />
-            <main className="page">
-                <h1>Settings</h1>
-                <p className="page-subtitle">Manage your profile, reminders, and account.</p>
+            <main className="page settings-page">
+                <h1 className="settings-title">Settings</h1>
+                <p className="settings-subtitle">Manage your profile, reminders, and account.</p>
 
                 <section className="settings-section">
                     <h2>Profile</h2>
