@@ -18,7 +18,7 @@ export default class ErrorBoundary extends Component {
         if (this.state.error) {
             return (
                 <div style={{ padding: 40, fontFamily: "sans-serif", maxWidth: 640, margin: "0 auto" }}>
-                    <h1 style={{ color: "#ff7a59" }}>Something went wrong</h1>
+                    <h1 style={{ color: "#c1443d" }}>Something went wrong</h1>
                     <p>
                         The app hit an error instead of loading. The most common cause is
                         a missing or incorrect Firebase configuration in your{" "}
