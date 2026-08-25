@@ -834,3 +834,139 @@ textarea {
     transition: none !important;
   }
 }
+
+/* ==========================================================================
+   SETTINGS PAGE
+   ========================================================================== */
+.settings-title {
+  font-size: 1.6rem;
+}
+
+.settings-subtitle {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  margin: 6px 0 24px;
+}
+
+.settings-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.settings-section h2 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 420px;
+}
+
+.settings-form--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  max-width: none;
+}
+
+.settings-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.settings-form input {
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.settings-save-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings-status {
+  color: var(--accent-solid);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.settings-toggle-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.settings-toggle-item strong {
+  font-size: 0.9rem;
+}
+
+.settings-toggle-item p {
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+  margin: 4px 0 0;
+}
+
+.age-group-picker legend {
+  font-size: 0.85rem;
+}
+
+.age-option {
+  font-size: 0.85rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-track {
+  position: absolute;
+  inset: 0;
+  background: var(--border);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.switch-track::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.switch input:checked+.switch-track {
+  background: var(--accent-solid);
+}
+
+.switch input:checked+.switch-track::before {
+  transform: translateX(20px);
+}
