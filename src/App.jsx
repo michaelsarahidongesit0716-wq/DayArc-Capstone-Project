@@ -75,6 +75,7 @@ import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
 import WeeklyReview from "./pages/weeklyreview";
 import Reflection from "./pages/reflection";
+import Reflection from "./pages/settings";
 
 function AgeGroupTheme({ children }) {
   const { profile } = useAuth();
@@ -117,6 +118,16 @@ export default function App() {
                   </PrivateRoute>
                 }
               />
+
+              <Route
+                path="/settings"
+                element={
+                  <PrivateRoute>
+                    <Settings />
+                  </PrivateRoute>
+                }
+              />
+
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </TaskProvider>
