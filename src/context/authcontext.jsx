@@ -4,13 +4,13 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signOut,
+    updatePassword,
     updateProfile,
 } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 const AuthContext = createContext(null);
-
 export function useAuth() {
     return useContext(AuthContext);
 }
@@ -28,7 +28,6 @@ export function AuthProvider({ children }) {
                     const snap = await getDoc(doc(db, "users", firebaseUser.uid));
                     setProfile(snap.exists() ? snap.data() : null);
                 } catch (err) {
-
                     console.error("Failed to load user profile from Firestore:", err);
                     setProfile(null);
                 }
@@ -52,7 +51,7 @@ export function AuthProvider({ children }) {
     async function register({ name, email, password, ageGroup }) {
         const cred = await withTimeout(
             createUserWithEmailAndPassword(auth, email, password),
-            "Account creation timed out. Check your internet connection."
+            "Account creation timed out. Check your internet connection and Firebase setup."
         );
         await updateProfile(cred.user, { displayName: name });
 
@@ -61,8 +60,8 @@ export function AuthProvider({ children }) {
             email,
             ageGroup,
 
-            prepTime: "00:00 ",
-            startTime: "00:00 ",
+            prepTime: "00:00",
+            startTime: "00:00",
             createdAt: serverTimestamp(),
         };
         await withTimeout(
@@ -89,7 +88,20 @@ export function AuthProvider({ children }) {
         setProfile((prev) => ({ ...prev, ...changes }));
     }
 
-    const value = { user, profile, loading, register, login, logout, updateSettings };
+    function changePassword(newPassword) {
+        return updatePassword(auth.currentUser, newPassword);
+    }
+
+    const value = {
+        user,
+        profile,
+        loading,
+        register,
+        login,
+        logout,
+        updateSettings,
+        changePassword,
+    };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
