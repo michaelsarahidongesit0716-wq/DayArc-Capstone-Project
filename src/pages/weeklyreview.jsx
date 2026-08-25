@@ -14,15 +14,12 @@ import { useTasks } from "../context/taskcontext";
 import { currentWeekDates, weekdayLabel, formatMinutes } from "../utils/datehelpers";
 import { gradeFor } from "../utils/grading";
 
-// Chart.js requires each piece it uses (bars, axes, tooltips...) to be
-// "registered" once, up front, before any <Bar> chart can render.
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 export default function WeeklyReview() {
     const { tasks } = useTasks();
     const weekDates = currentWeekDates();
 
-    // Group this week's tasks by date, then compute a grade for each day.
     const dailyGrades = useMemo(
         () =>
             weekDates.map((date) => {

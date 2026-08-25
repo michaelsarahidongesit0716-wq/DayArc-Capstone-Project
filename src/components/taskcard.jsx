@@ -4,9 +4,7 @@ import { formatMinutes } from "../utils/datehelpers";
 
 export default function TaskCard({ task, onEdit }) {
     const { toggleComplete, deleteTask, startTimer, stopTimer } = useTasks();
-    // "liveSeconds" lets the on-screen timer tick up every second while
-    // running, without writing to Firestore on every tick (we only write
-    // once, when the timer is stopped — see TaskContext.stopTimer).
+
     const [liveSeconds, setLiveSeconds] = useState(task.timeSpentSeconds || 0);
 
     useEffect(() => {

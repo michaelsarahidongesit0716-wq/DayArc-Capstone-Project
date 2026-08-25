@@ -7,8 +7,6 @@ const QUADRANT_META = {
     "not-not": { title: "Drop", subtitle: "Not Urgent, Not Important" },
 };
 
-// Takes today's flat task list and renders it as the classic 2x2
-// Eisenhower / Urgent-Important Matrix, one quadrant per grid cell.
 export default function MatrixBoard({ tasks, onEdit }) {
     return (
         <div className="matrix-grid">

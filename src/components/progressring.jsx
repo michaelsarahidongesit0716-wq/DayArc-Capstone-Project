@@ -1,6 +1,3 @@
-// Draws a circular progress ring using SVG's stroke-dasharray trick:
-// the circle's outline is "dashed" into one dash equal to (percent% of the
-// circumference), which visually looks like a ring filling up.
 export default function ProgressRing({ percent = 0, label = "", size = 120 }) {
     const stroke = 10;
     const radius = (size - stroke) / 2;

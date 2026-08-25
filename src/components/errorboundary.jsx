@@ -1,8 +1,5 @@
 import { Component } from "react";
 
-// React error boundaries catch crashes that happen while rendering and let
-// us show something useful instead of a blank white page. This is what
-// wraps <App /> in main.jsx.
 export default class ErrorBoundary extends Component {
     constructor(props) {
         super(props);
@@ -14,8 +11,6 @@ export default class ErrorBoundary extends Component {
     }
 
     componentDidCatch(error, info) {
-        // Full details always go to the browser console (F12 -> Console tab)
-        // so you can see exactly what broke.
         console.error("DayArc crashed:", error, info);
     }
 
@@ -40,12 +35,6 @@ export default class ErrorBoundary extends Component {
                     >
                         {String(this.state.error?.message || this.state.error)}
                     </pre>
-                    {/* <p>
-                        Open the browser console (F12 → Console tab) for the full
-                        stack trace, and double-check every <code>VITE_FIREBASE_*</code>{" "}
-                        value in <code>.env</code> matches your Firebase project settings
-                        exactly.
-                    </p> */}
                 </div>
             );
         }

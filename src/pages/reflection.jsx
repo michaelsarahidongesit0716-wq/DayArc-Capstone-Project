@@ -16,9 +16,8 @@ export default function Reflection() {
     const { user } = useAuth();
     const [entries, setEntries] = useState([]);
     const [text, setText] = useState("");
-    const [type, setType] = useState("daily"); // "daily" | "weekly"
+    const [type, setType] = useState("daily");
 
-    // Live list of this user's past reflections, newest first.
     useEffect(() => {
         if (!user) return;
         const q = query(

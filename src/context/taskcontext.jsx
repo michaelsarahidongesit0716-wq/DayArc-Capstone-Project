@@ -23,9 +23,6 @@ export function TaskProvider({ children }) {
     const { user } = useAuth();
     const [tasks, setTasks] = useState([]);
 
-    // Live-subscribes to every task document where ownerId === this user's id.
-    // onSnapshot means the UI updates instantly the moment data changes —
-    // no manual refresh or refetching needed, even across tabs/devices.
     useEffect(() => {
         if (!user) {
             setTasks([]);
@@ -37,14 +34,12 @@ export function TaskProvider({ children }) {
         );
         const unsubscribe = onSnapshot(tasksQuery, (snapshot) => {
             const list = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
-            // Newest first so the day's freshest tasks sit at the top.
             list.sort((a, b) => (a.date < b.date ? 1 : -1));
             setTasks(list);
         });
         return unsubscribe;
     }, [user]);
 
-    // quadrant: "urgent-important" | "urgent-not" | "not-urgent-important" | "not-not"
     async function addTask({ title, quadrant, date = todayISO(), time = "" }) {
         await addDoc(collection(db, "tasks"), {
             ownerId: user.uid,
@@ -70,8 +65,6 @@ export function TaskProvider({ children }) {
         return updateTask(task.id, { completed: !task.completed });
     }
 
-    // Simple start/stop time tracker. We store the start timestamp, and on
-    // stop we add the elapsed seconds onto the running total.
     function startTimer(task) {
         return updateTask(task.id, { timerStartedAt: Date.now() });
     }

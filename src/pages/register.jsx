@@ -29,8 +29,7 @@ export default function Register() {
         setError("");
         setSubmitting(true);
         try {
-            // Firebase enforces a minimum 6-character password on its own,
-            // but we surface the requirement up front for a nicer experience.
+
             await register(form);
             navigate("/dashboard");
         } catch (err) {
@@ -62,7 +61,6 @@ export default function Register() {
                         name="email"
                         type="email"
                         placeholder="Enter your email"
-                    // autoComplete="email"
                     />
                 </label>
 
@@ -77,7 +75,6 @@ export default function Register() {
                         id="password"
                         name="password"
                         placeholder="Create password"
-                    // autoComplete="new-password"
                     />
                 </label>
 
@@ -92,7 +89,6 @@ export default function Register() {
                         id="confirm-password"
                         name="confirm-password"
                         placeholder="Confirm password"
-                    // autoComplete="new-password"
                     />
                 </label>
 
@@ -118,8 +114,6 @@ export default function Register() {
                         </label>
                     ))}
                 </fieldset>
-
-                {/* {error && <p className="form-error">{error}</p>} */}
 
                 <button className="btn btn-primary" type="submit" disabled={submitting}>
                     {submitting ? "Creating account…" : "Create account"}

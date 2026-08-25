@@ -1,11 +1,4 @@
-/* ==========================================================================
-   DESIGN TOKENS
-   Theme: "DayArc" — the arc your day makes from sunrise to reflection.
-   Signature element: the SVG progress ring (see ProgressRing.jsx), which
-   echoes the arc motif everywhere completion is shown.
-   ========================================================================== */
 :root {
-  /* Palette — warm cream / terracotta */
   --bg: #fdf8f3;
   --surface: #ffffff;
   --ink: #2b2320;
@@ -22,19 +15,15 @@
   --radius-lg: 22px;
   --shadow: 0 8px 24px rgba(43, 35, 32, 0.08);
 
-  /* Type */
   --font-display: "Poppins", sans-serif;
   --font-body: "Inter", sans-serif;
   --fs-base: 16px;
 }
 
-/* ---- Age-group variants -------------------------------------------------
-   Applied via body[data-age-group] in App.jsx. Teen gets a slightly more
-   vibrant accent color; Adult uses the default palette defined above. */
-/* body[data-age-group="teen"] {
+body[data-age-group="teen"] {
   --accent-start: #ff5f8f;
   --accent-end: #ff9f45;
-} */
+}
 
 .fullscreen-loader {
   min-height: 100vh;
@@ -60,6 +49,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.offline-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  text-align: center;
+  padding: 8px 16px;
+  background: var(--urgent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 * {
@@ -93,9 +94,6 @@ textarea {
   font-size: 1rem;
 }
 
-/* ==========================================================================
-   LAYOUT
-   ========================================================================== */
 .page {
   max-width: 960px;
   margin: 0 auto;
@@ -150,9 +148,6 @@ textarea {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   BUTTONS
-   ========================================================================== */
 .btn {
   border: none;
   border-radius: var(--radius-md);
@@ -184,9 +179,6 @@ textarea {
   padding: 6px 10px;
 }
 
-/* ==========================================================================
-   AUTH SCREENS
-   ========================================================================== */
 .auth-screen {
   min-height: 100vh;
   display: flex;
@@ -274,9 +266,6 @@ textarea {
   background: #faf1e6;
 }
 
-/* ==========================================================================
-   DASHBOARD
-   ========================================================================== */
 .dashboard-header {
   display: flex;
   align-items: center;
@@ -392,7 +381,6 @@ textarea {
   color: var(--ink);
 }
 
-/* ---- Task list & cards --------------------------------------------------- */
 .task-list {
   display: flex;
   flex-direction: column;
@@ -444,7 +432,6 @@ textarea {
   gap: 6px;
 }
 
-/* ---- Task form / modal ---------------------------------------------------- */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -482,7 +469,6 @@ textarea {
   gap: 10px;
 }
 
-/* ---- Urgent-Important Matrix ----------------------------------------------- */
 .matrix-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -533,7 +519,6 @@ textarea {
   font-size: 0.85rem;
 }
 
-/* ---- Progress ring ---------------------------------------------------- */
 .ring-percent {
   font-family: var(--font-display);
   font-weight: 700;
@@ -546,7 +531,6 @@ textarea {
   fill: var(--ink-muted);
 }
 
-/* ---- Motivational popup ---------------------------------------------------- */
 .popup-backdrop {
   position: fixed;
   inset: 0;
@@ -570,7 +554,6 @@ textarea {
   font-size: 28px;
 }
 
-/* ---- Weekly review ---------------------------------------------------- */
 .stat-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -604,7 +587,6 @@ textarea {
   padding: 20px;
 }
 
-/* ---- Reflections ---------------------------------------------------- */
 .reflection-form {
   display: flex;
   flex-direction: column;
@@ -673,9 +655,6 @@ textarea {
   color: var(--secondary);
 }
 
-/* ==========================================================================
-   LANDING PAGE
-   ========================================================================== */
 .landing {
   min-height: 100vh;
 }
@@ -836,7 +815,6 @@ textarea {
   }
 }
 
-/* ---- Responsive ---------------------------------------------------- */
 @media (max-width: 640px) {
   .matrix-grid {
     grid-template-columns: 1fr;
@@ -851,7 +829,6 @@ textarea {
   }
 }
 
-/* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;

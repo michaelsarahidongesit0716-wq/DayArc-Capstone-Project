@@ -21,9 +21,7 @@ export default function Login() {
             await login(form);
             navigate("/dashboard");
         } catch (err) {
-            // Firebase throws generic "invalid-credential" errors on purpose —
-            // it does not tell an attacker whether the email or password was
-            // wrong, which is a deliberate security best practice.
+
             setError("Incorrect email or password.");
         } finally {
             setSubmitting(false);
@@ -34,7 +32,6 @@ export default function Login() {
         <div className="auth-screen">
             <form className="auth-card" onSubmit={handleSubmit}>
                 <h1>Welcome back</h1>
-                {/* <p className="auth-subtitle">Log in to see today's schedule.</p> */}
 
                 <label>
                     Email
@@ -55,8 +52,6 @@ export default function Login() {
                         onChange={update("password")}
                     />
                 </label>
-
-                {/* {error && <p className="form-error">{error}</p>} */}
 
                 <button className="btn btn-primary" disabled={submitting}>
                     {submitting ? "Logging in…" : "Log in"}

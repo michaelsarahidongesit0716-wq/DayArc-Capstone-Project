@@ -3,7 +3,6 @@
     overflow: hidden;
 }
 
-/* ---- Nav ---- */
 .landing-nav {
     display: flex;
     align-items: center;
@@ -43,7 +42,6 @@
     font-size: 0.9rem;
 }
 
-/* ---- Main hero layout ---- */
 .landing-main {
     display: flex;
     align-items: center;
@@ -274,7 +272,6 @@
     color: var(--accent-solid);
 }
 
-/* ---- Floating cards ---- */
 .floating-task-card,
 .floating-progress-card {
     position: absolute;
@@ -339,7 +336,6 @@
     flex-shrink: 0;
 }
 
-/* ---- Footer statement ---- */
 .landing-footer {
     display: flex;
     justify-content: center;
@@ -352,7 +348,6 @@
     border-top: 1px solid var(--border);
 }
 
-/* ---- Responsive ---- */
 @media (max-width: 860px) {
     .landing-main {
         flex-direction: column;

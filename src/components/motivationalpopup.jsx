@@ -1,5 +1,5 @@
 export default function MotivationalPopup({ message, onDismiss }) {
-    if (!message) return null; // render nothing when there's no active message
+    if (!message) return null;
 
     return (
         <div className="popup-backdrop" onClick={onDismiss}>
