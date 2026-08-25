@@ -5,8 +5,8 @@ const MESSAGES = {
         { sticker: "🔥", text: "Nothing here yet — that just means anything's possible today." },
         { sticker: "🎧", text: "Your day's a clean slate. What's first on the list?" },
         { sticker: "🚀", text: "Blank page, big energy. Add your first task and start a streak!" },
-        { sticker: "🌟", text: "Stay focused.Keep moving." },
-        { sticker: "🌞", text: "Plan it.Do it.Achieve it." },
+        { sticker: "🌟", text: "Stay focused. Keep moving." },
+        { sticker: "🌞", text: "Plan it. Do it. Achieve it." },
     ],
     adult: [
         { sticker: "☕", text: "A quiet start. Add your first task and get the day moving." },
