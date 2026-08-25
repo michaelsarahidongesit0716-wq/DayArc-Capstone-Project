@@ -10,8 +10,6 @@ const AGE_GROUPS = [
 export default function Settings() {
     const { profile, updateSettings, changePassword } = useAuth();
 
-    // Each section keeps its own local state and its own save button, so
-    // saving one section (e.g. reminder times) never touches the others.
     const [name, setName] = useState(profile?.name || "");
     const [ageGroup, setAgeGroup] = useState(profile?.ageGroup || "adult");
     const [profileStatus, setProfileStatus] = useState("");
@@ -20,7 +18,6 @@ export default function Settings() {
     const [startTime, setStartTime] = useState(profile?.startTime || "07:00");
     const [reminderStatus, setReminderStatus] = useState("");
 
-    // voiceEnabled defaults to true if the user has never set it before.
     const [voiceEnabled, setVoiceEnabled] = useState(
         profile?.voiceEnabled !== false
     );
