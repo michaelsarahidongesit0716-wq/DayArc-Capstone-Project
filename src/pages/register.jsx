@@ -27,9 +27,12 @@ export default function Register() {
     async function handleSubmit(e) {
         e.preventDefault();
         setError("");
+        if (form.password !== form.confirmPassword) {
+            setError("Passwords do not match.");
+            return;
+        }
         setSubmitting(true);
         try {
-
             await register(form);
             navigate("/dashboard");
         } catch (err) {
@@ -59,7 +62,6 @@ export default function Register() {
                         onChange={update("email")}
                         id="email"
                         name="email"
-                        type="email"
                         placeholder="Enter your email"
                     />
                 </label>
@@ -94,7 +96,7 @@ export default function Register() {
 
                 <fieldset className="age-group-picker">
                     <legend>Age group</legend>
-                    {AGE_GROUPS.map((group) => (
+                    {AGE_GROUPS.map((group, index) => (
                         <label
                             key={group.value}
                             className={`age-option ${form.ageGroup === group.value ? "age-option--selected" : ""
@@ -106,6 +108,7 @@ export default function Register() {
                                 value={group.value}
                                 checked={form.ageGroup === group.value}
                                 onChange={update("ageGroup")}
+                                required={index === 0}
                             />
                             <div>
                                 <strong>{group.label}</strong>
@@ -114,6 +117,8 @@ export default function Register() {
                         </label>
                     ))}
                 </fieldset>
+
+                {error && <p className="form-error">{error}</p>}
 
                 <button className="btn btn-primary" type="submit" disabled={submitting}>
                     {submitting ? "Creating account…" : "Create account"}
