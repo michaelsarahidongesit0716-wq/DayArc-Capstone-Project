@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/authcontext";
 import { TaskProvider } from "./context/taskcontext";
 import PrivateRoute from "./components/privateroute";
-import OfflineBanner from "./components/Offlinebanner";
+import OfflineBanner from "./components/offlinebanner";
 import Landing from "./pages/landing";
 import Login from "./pages/login";
 import Register from "./pages/register";

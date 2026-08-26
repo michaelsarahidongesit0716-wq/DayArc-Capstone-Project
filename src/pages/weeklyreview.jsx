@@ -42,7 +42,7 @@ export default function WeeklyReview() {
             {
                 label: "Productivity %",
                 data: dailyGrades.map((d) => d.percent),
-                backgroundColor: "#4C9F70",
+                backgroundColor: "#b85c38",
                 borderRadius: 8,
             },
         ],

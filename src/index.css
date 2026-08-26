@@ -946,7 +946,7 @@ textarea {
   inset: 0;
   background: var(--border);
   border-radius: 999px;
-  transition: 0.2 ease;
+  transition: background 0.2s ease;
   cursor: pointer;
 }
 
