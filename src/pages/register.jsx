@@ -27,12 +27,9 @@ export default function Register() {
     async function handleSubmit(e) {
         e.preventDefault();
         setError("");
-        if (form.password !== form.confirmPassword) {
-            setError("Passwords do not match.");
-            return;
-        }
         setSubmitting(true);
         try {
+
             await register(form);
             navigate("/dashboard");
         } catch (err) {
